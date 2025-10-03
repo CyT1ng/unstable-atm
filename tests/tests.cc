@@ -79,7 +79,7 @@ TEST_CASE("Example: Deposit cash", "[ex-2]") {
   atm.DepositCash(12345678, 1234, 20);
   auto accounts = atm.GetAccounts();
   Account sam_account = accounts[{12345678, 1234}];
-  REQUIRE(accounts.owner_name == "Sam Sepiol");
+  REQUIRE(sam_account.owner_name == "Sam Sepiol");
   REQUIRE(sam_account.balance == 320.30);
 }
 TEST_CASE("Example: Print Prompt Ledger", "[ex-3]") {
@@ -94,4 +94,8 @@ TEST_CASE("Example: Print Prompt Ledger", "[ex-3]") {
       "Deposit - Amount: $32000.00, Updated Balance: $72099.90");
   atm.PrintLedger("./prompt.txt", 12345678, 1234);
   REQUIRE(CompareFiles("./ex-1.txt", "./prompt.txt"));
+}
+TEST_CASE("Shouldn't print ledger for non-exist account", "[ex-3]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 123
 }

@@ -33,6 +33,7 @@ bool CompareFiles(const std::string& p1, const std::string& p2) {
 // Test Cases
 /////////////////////////////////////////////////////////////////////////////////////////////
 
+
 TEST_CASE("Example: Create a new account", "[ex-1]") {
   Atm atm;
   atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
@@ -49,6 +50,13 @@ TEST_CASE("Example: Create a new account", "[ex-1]") {
   REQUIRE(accounts.size() == 1);
   std::vector<std::string> empty;
   REQUIRE(transactions[{12345678, 1234}] == empty);
+}
+
+TEST_CASE("Example: Create a duplicate account", "[ex-2]") {
+  Atm atm;
+  atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30);
+  REQUIRE_THROWS_AS(atm.RegisterAccount(12345678, 1234, "Sam Sepiol", 300.30),
+                    std::invalid_argument);
 }
 
 TEST_CASE("Example: Simple widthdraw", "[ex-2]") {

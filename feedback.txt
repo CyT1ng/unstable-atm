@@ -1,14 +1,12 @@
-1. Your test suite properly identified the correct solution!
+Your test suite did not compile!
 
-2. Your test suite properly identified an incorrect solution!
+tests/tests.cc:101:1: error: expected ')'
+  101 | }
+      | ^
+tests/tests.cc:100:22: note: to match this '('
+  100 |   atm.RegisterAccount(12345678, 123
+      |                      ^
+1 error generated.
 
-3. Your test suite did not perform as expected.
-HINT: Try withdrawing a negative amount of cash.
 
-4. Your test suite did not perform as expected.
-HINT: Does the account's balance appear as expected after we make a deposit?
-
-5. Your test suite did not perform as expected.
-HINT: Should we be printing a ledger for an account that doesn't exist?
-
-score: 2/5
+score: 0/5

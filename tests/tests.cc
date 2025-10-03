@@ -97,5 +97,6 @@ TEST_CASE("Example: Print Prompt Ledger", "[ex-3]") {
 }
 TEST_CASE("Shouldn't print ledger for non-exist account", "[ex-3]") {
   Atm atm;
-  atm.RegisterAccount(12345678, 123
+  REQUIRE_THROWS_AS(atm.PrintLedger("./prompt.txt", 12345678, 1234),
+                    std::invalid_argument);
 }
